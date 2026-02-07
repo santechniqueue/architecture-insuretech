@@ -1,0 +1,35 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: scaletestapp-hpa-rps
+  namespace: default
+  labels:
+    app: scaletestapp
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: scaletestapp
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: Pods
+    pods:
+      metric:
+        name: rps_per_pod
+      target:
+        type: AverageValue
+        averageValue: "40"
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 15
+      policies:
+        - type: Percent
+          value: 100
+          periodSeconds: 3
+    scaleDown:
+      stabilizationWindowSeconds: 100
+      policies:
+        - type: Percent
+          value: 10
+          periodSeconds: 25
