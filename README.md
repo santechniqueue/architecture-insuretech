@@ -9,3 +9,5 @@
 [Задание 4. Проектирование продажи ОСАГО](Task4/README.md)
 
 [Задание 5. Проектирование GraphQL API](Task5/README.md)
+
+[Задание 6. Настройка Rate Limiting](Task6/)
