@@ -7,3 +7,5 @@
 [Задание 3. Переход на Event-Driven архитектуру](Task3/README.md)
 
 [Задание 4. Проектирование продажи ОСАГО](Task4/README.md)
+
+[Задание 5. Проектирование GraphQL API](Task5/README.md)
